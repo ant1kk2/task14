@@ -39,7 +39,7 @@ nextBtn.addEventListener("click", () => {
   prevBtn.classList.remove("hidden");
   img.src = imagesLinks[++currentImg];
   if (currentImg === imagesLinks.length - 1) {
-    nextBtn.classList.add("hidden");
+    nextBtn.hidden = true;
   }
 });
 
@@ -47,6 +47,6 @@ prevBtn.addEventListener("click", () => {
   nextBtn.classList.remove("hidden");
   img.src = imagesLinks[--currentImg];
   if (currentImg === 0) {
-    prevBtn.classList.add("hidden");
+    prevBtn.hidden = true;
   }
 });
