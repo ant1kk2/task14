@@ -55,3 +55,7 @@ button:hover{
 button:active{
     background-color: #111;
 }
+
+button.hidden{
+    visibility: hidden;
+}
