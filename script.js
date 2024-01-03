@@ -35,22 +35,30 @@ img.className = "image";
 img.src = imagesLinks[currentImg];
 imgContainer.prepend(img);
 
-nextBtn.addEventListener("click", () => {
+function showNextSlide() {
   if (prevBtn.classList.contains("hidden")) {
     prevBtn.classList.remove("hidden");
+    prevBtn.addEventListener("click", showPrevSlide);
   }
   img.src = imagesLinks[++currentImg];
   if (currentImg === imagesLinks.length - 1) {
     nextBtn.classList.add("hidden");
+    nextBtn.removeEventListener("click", showNextSlide);
   }
-});
+}
 
-prevBtn.addEventListener("click", () => {
+function showPrevSlide() {
   if (nextBtn.classList.contains("hidden")) {
+    nextBtn.addEventListener("click", showNextSlide);
     nextBtn.classList.remove("hidden");
   }
   img.src = imagesLinks[--currentImg];
   if (currentImg === 0) {
     prevBtn.classList.add("hidden");
+    prevBtn.removeEventListener("click", showPrevSlide);
   }
-});
+}
+
+nextBtn.addEventListener("click", showNextSlide);
+
+
