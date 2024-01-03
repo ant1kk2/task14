@@ -1,13 +1,13 @@
 const imagesLinks = [
   "images/1.jpg",
   "images/2.jpg",
-  "images/3.jpg",
-  "images/4.jpg",
-  "images/5.jpg",
-  "images/6.jpg",
-  "images/7.jpg",
-  "images/8.jpg",
-  "images/9.jpg",
+  // "images/3.jpg",
+  // "images/4.jpg",
+  // "images/5.jpg",
+  // "images/6.jpg",
+  // "images/7.jpg",
+  // "images/8.jpg",
+  // "images/9.jpg",
 ];
 
 let currentImg = 0;
@@ -28,12 +28,18 @@ wrapper.append(imgContainer);
 const nextBtn = document.createElement("button");
 nextBtn.className = "nextBtn";
 nextBtn.textContent = "Next";
-wrapper.append(nextBtn);
+if (imagesLinks.length > 1) {
+  wrapper.append(nextBtn);
+}
 
 const img = document.createElement("img");
 img.className = "image";
-img.src = imagesLinks[currentImg];
-imgContainer.prepend(img);
+if (imagesLinks.length) {
+  img.src = imagesLinks[currentImg];
+  imgContainer.prepend(img);
+} else {
+  imgContainer.textContent = "Ми не маємо картинок";
+}
 
 function showNextSlide() {
   if (prevBtn.classList.contains("hidden")) {
@@ -60,5 +66,3 @@ function showPrevSlide() {
 }
 
 nextBtn.addEventListener("click", showNextSlide);
-
-
