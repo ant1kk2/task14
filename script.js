@@ -36,6 +36,10 @@ const img = document.createElement("img");
 img.className = "image";
 if (imagesLinks.length) {
   img.src = imagesLinks[currentImg];
+  img.alt = "Слайд з картинкою";
+  img.onerror = () => {
+    console.log("Перевірити шлях до картинки")
+  }
   imgContainer.prepend(img);
 } else {
   imgContainer.textContent = "Ми не маємо картинок";
