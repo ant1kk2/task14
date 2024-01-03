@@ -36,7 +36,9 @@ img.src = imagesLinks[currentImg];
 imgContainer.prepend(img);
 
 nextBtn.addEventListener("click", () => {
-  prevBtn.classList.remove("hidden");
+  if (prevBtn.classList.contains("hidden")) {
+    prevBtn.classList.remove("hidden");
+  }
   img.src = imagesLinks[++currentImg];
   if (currentImg === imagesLinks.length - 1) {
     nextBtn.classList.add("hidden");
@@ -44,7 +46,9 @@ nextBtn.addEventListener("click", () => {
 });
 
 prevBtn.addEventListener("click", () => {
-  nextBtn.classList.remove("hidden");
+  if (nextBtn.classList.contains("hidden")) {
+    nextBtn.classList.remove("hidden");
+  }
   img.src = imagesLinks[--currentImg];
   if (currentImg === 0) {
     prevBtn.classList.add("hidden");
