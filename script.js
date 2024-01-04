@@ -17,18 +17,20 @@ wrapper.className = "wrapper";
 document.body.prepend(wrapper);
 
 const prevBtn = document.createElement("button");
-prevBtn.className = "prevBtn hidden";
-prevBtn.textContent = "Prev";
-wrapper.append(prevBtn);
+if (imagesLinks.length > 1) {
+  prevBtn.className = "prevBtn hidden";
+  prevBtn.textContent = "Prev";
+  wrapper.append(prevBtn);
+}
 
 const imgContainer = document.createElement("div");
 imgContainer.className = "image-container";
 wrapper.append(imgContainer);
 
 const nextBtn = document.createElement("button");
-nextBtn.className = "nextBtn";
-nextBtn.textContent = "Next";
 if (imagesLinks.length > 1) {
+  nextBtn.className = "nextBtn";
+  nextBtn.textContent = "Next";
   wrapper.append(nextBtn);
 }
 
@@ -38,8 +40,8 @@ if (imagesLinks.length) {
   img.src = imagesLinks[currentImg];
   img.alt = "Слайд з картинкою";
   img.onerror = () => {
-    console.log("Перевірити шлях до картинки")
-  }
+    console.log("Перевірити шлях до картинки");
+  };
   imgContainer.prepend(img);
 } else {
   imgContainer.textContent = "Ми не маємо картинок";
